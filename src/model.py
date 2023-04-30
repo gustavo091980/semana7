@@ -10,7 +10,7 @@ class Model:
         print("Se ha creado una usuario nuevo con el nombre de ", self.nombre)
 
     def __str__(self):
-        return "{} {} {}".format(self.nombre, self.genero, self.edad)
+        return "{} {} {} {} {}".format(self.nombre, self.apellidos, self.documento, self.genero, self.edad)
     
     def setNombre(self, nombre):
         self.nombre = nombre
