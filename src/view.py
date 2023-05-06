@@ -40,57 +40,66 @@ class View:
             #mensajeDocumento = StringVar()
             #mensajeSexo = StringVar()
             #mensajeEdad = StringVar()
-            
+            print("Sexo ",sexo)
+            print(option.get())
             if option.get() == 1:
                 sexo = "M"
             elif option.get() == 2:
                 sexo = "F"
 
+            print("Sexo 2 ",sexo)
             #mensajeRequerido = "Campo Requerido"
             mensajeGenerado = 0
-        
+            
             if len(nombreInput.get()) == 0:
                 """mensajeNombre = mensajeRequerido
                 label1 = Label(miFrame, text=mensajeNombre).place(x=200, y=125)"""
+                print("Ingresa nombreInput")
                 mensajeGenerado += 1 
-            else:                
-                mensajeGenerado -= 1
+           
 
             if len(apellidoInput.get()) == 0:
                 """mensajeApellido = mensajeRequerido
                 Label(miFrame, text=mensajeApellido).place(x=200, y=175)"""
+                print("Ingresa apellidoInput")
                 mensajeGenerado += 1
-            else:
-                """mensajeApellido = ""
-                Label(miFrame, text=mensajeApellido).place(x=200, y=175)"""
-                mensajeGenerado -= 1
+          
 
             if len(documentoInput.get()) == 0:
                 """mensajeDocumento = mensajeRequerido
                 Label(miFrame, text=mensajeDocumento).place(x=200, y=225)"""
+                print("Ingresa documento")
                 mensajeGenerado += 1
-            else:
-                """mensajeDocumento = ""
-                Label(miFrame, text=mensajeDocumento).place(x=200, y=225)"""
-                mensajeGenerado -= 1
+           
 
-            if len(sexo) == 0:
-                """mensajeSexo = mensajeRequerido
-                Label(miFrame, text=mensajeSexo).place(x=200, y=275)"""
+            match sexo:
+                case "M":
+                    print("Ingresa M")
+                    #mensajeGenerado -= 1            
+                case "F":
+                    print("Ingresa F")
+                    #mensajeGenerado -= 1
+                case _:
+                    print("Ingresa nada")
+                    mensajeGenerado += 1
+            
+            """if len(sexo) == 0:
+                mensajeSexo = mensajeRequerido
+                Label(miFrame, text=mensajeSexo).place(x=200, y=275)
+                print("Ingresa sexo")
                 mensajeGenerado += 1
             else:
-                """mensajeSexo = ""
-                Label(miFrame, text=mensajeSexo).place(x=200, y=275)"""
-                mensajeGenerado -= 1
+                mensajeSexo = ""
+                Label(miFrame, text=mensajeSexo).place(x=200, y=275)
+                mensajeGenerado -= 1"""
 
-            if len(edadInput.get()) == 0:
-                """mensajeEdad = mensajeRequerido
-                Label(miFrame, text=mensajeEdad).place(x=200, y=325)"""
+            if edadInput.get() == 0 or edadInput.get() == "":
+                
+                print("Ingresa edad")
                 mensajeGenerado += 1
-            else:
-                """mensajeEdad = ""
-                Label(miFrame, text=mensajeEdad).place(x=200, y=325)"""
-                mensajeGenerado -= 1
+           
+
+            print(mensajeGenerado)
 
             if mensajeGenerado <= 0:
                 #print(nombreInput.get(), apellidoInput.get(), documentoInput.get(), sexo, edadInput.get())
@@ -106,25 +115,10 @@ class View:
            apellidoInput.delete(0, END)
            documentoInput.delete(0, END)
            edadInput.delete(0, END)
+           nombreInput.focus()
         
         Button(miFrame, text="Guardar", command=executeSave, font=('Helvetica bold',10)).place(x=280, y=350)
         Button(miFrame, text="Nuevo", command=clear_text, font=('Helvetica bold',10)).place(x=350, y=350)
         
         raiz.mainloop()
-        """print("******** Formulario Crear Usuario ********")
-        print("Datos Básicos")
-        print("")
-        print("*******************************************")
-        print("")
-        print("")
-        print("Nombre: ")
-
-        self.nombre = input()
-        print("Apellidos")
-        self.apellidos = input()
-        print("Número Documento")
-        self.documento = input()
-        print("Sexo M ó F")
-        self.genero = input()
-        print("Edad")
-        self.edad = input()"""
+      
