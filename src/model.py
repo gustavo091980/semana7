@@ -41,7 +41,8 @@ class ListaPersonas:
 
     def mostrarPersonas(self):
         for p in self.personas:
-            print(p)
+            print(p)        
+        
 
     def guardarPersonas(self):
         listadoDePersonas=open("data", "wb")
@@ -53,4 +54,3 @@ class ListaPersonas:
         print("Los usuarios guardados son los siguiente:")
         for p in self.personas:
             print(p)
-
